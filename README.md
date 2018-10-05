@@ -87,12 +87,12 @@
 ## 评估指标
 根据题目的[评估要求][Evaluation]，这里的评估指标为test集的multi-class logarithmic loss，其计算公式如下：
 
-$$
-logloss=-\frac{1}{N}\sum\limits^{N}_{i=1}\sum\limits^{M}_{j=1}y_{ij}\log(p_{ij})
-$$
+[equation 1](http://latex.codecogs.com/gif.latex?logloss%3D-%5Cfrac%7B1%7D%7BN%7D%5Csum%5Climits%5E%7BN%7D_%7Bi%3D1%7D%5Csum%5Climits%5E%7BM%7D_%7Bj%3D1%7Dy_%7Bij%7D%5Clog%28p_%7Bij%7D%29)  
 
-其中$N$是test集中图片的数目，$M$是图片的标注种类的数目，$y_{ij}$在图片$i$属于第$j$个标注时等于1，其他情况下等于0，$p_{ij}$表示第$i$张图片属于标注$j$的概率。
-为了防止$\log$中极端值的出现，对于$p_{ij}$可以做如下处理$\max(\min(p_{ij},1-10^{-15}),10^{-15})$。
+其中N是test集中图片的数目，M是图片的标注种类的数目，y_{ij}在图片i属于第j个标注时等于1，其他情况下等于0，p_{ij}表示第i张图片属于标注j的概率。
+为了防止\log中极端值的出现，对于p_{ij}可以做如下处理
+
+[equation 2](http://latex.codecogs.com/gif.latex?%5Cmax%28%5Cmin%28p_%7Bij%7D%2C1-10%5E%7B-15%7D%29%2C10%5E%7B-15%7D%29)
 
 [Evaluation]: https://www.kaggle.com/c/state-farm-distracted-driver-detection#evaluation
 

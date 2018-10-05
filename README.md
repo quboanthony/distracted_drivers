@@ -1,8 +1,8 @@
-#distracted_drivers
+# distracted_drivers
 
-##侦测走神司机
+## 侦测走神司机
 
-##项目背景
+## 项目背景
 侦测走神司机项目（[Distracted Driver Detection][1]）来自 Kaggle，由[State Farm][2]提出。State Farm 使用车内摄像头，对驾驶员驾车时的状态进行了视频记录并截取了视频中的图片作为训练数据，要求通过该数据建立识别出司机是在专注驾驶还是在走神的方法。改项目具有比较大的现实意义，基于该图像识别的车载系统可以提示司机进行更安全、更专注的驾驶，提高行车效率，降低事故率。
 
 该项目是一个典型的图像识别分类问题，所以可以考虑通过深度卷积神经网络算法来解决。著名的卷积神经网络架构[LeNet][3]最早于1998年由Yann LeCun *et al.*提出，在2012年，Alex Krizhevsky *et al.*通过对卷积神经网络进行改进，提出了[AlexNet][4]，应用在ImageNet图像数据上，极大的提升了图像识别的准确率。从这时候，很多成功的深度卷积神经网络架构都被提出，例如著名的[VGGNet][5]、[GoogLeNet][6]。基于这些架构的成功，更多的方法不断被提出，包括[ResNet][7]，[Inception v3][8]，[Inception v4][9]， [Xception][10] ，[ResNeXt][11]等等。这些架构和方法使得卷积神经网络在图像识别问题上超过了其他方法，并提供了大量可以借鉴的想法和经验，是解决该项目的首选算法之一。
@@ -22,10 +22,10 @@
 [10]: https://arxiv.org/abs/1610.02357
 [11]: https://arxiv.org/abs/1611.05431
 [12]: https://github.com/nd009/capstone/tree/master/distracted_driver_detection
-##问题描述
+## 问题描述
 在该项目中，我们会得到一系列司机驾驶时拍摄的视频的截图，截图中展示了司机在驾驶时在做什么，例如发短信、吃东西、打电话等等。项目的目标是预测司机在图片中可能在干什么。该问题属于对于图片的分类问题，这里采用卷积神经网络为主要的算法。作为深度学习的初学者，重头构造自己的卷积神经网络架构并不可取，可以选择借鉴已有的成功网络架构，并尝试首先带入其他经典图像集预先训练好的权重，然后进行finetune。除了使用神经网络进行计算以外，项目还要求对神经网络做出判断的依据进行可视化解释，这就需要对神经网络每一层关注的图像区域进行可视化分析。
 
-##输入数据
+## 输入数据
 输入数据为按十种状态分类的彩色图片，状态列表为：
 - c0：安全驾驶
 - c1：右手打字
@@ -47,7 +47,7 @@
 - 分类比较多，且图片场景相对比较类似。
 
 
-##解决办法
+## 解决办法
 -  准备进行项目的软硬件环境，使用OpenCV进行图像的读取和处理，TensorFlow以及Keras作为深度学习框架，使用[亚马逊云][19]来进行计算。
 -  对数据进行探索，了解该项目数据特征，对数据进行分割处理。可以借鉴[ZFTurbo][13]共享的基础代码，作为开始，实现图片的读取、归类、处理、train-validation分割。
 - 学习借鉴已经成熟的卷积深度学习网络结构和方法（如VGG，Xception等），首先采用已有模型，以及预训练权重，transfer learning+开放部分层进行finetune的思路，先跑起来，实现初步的训练，观察结果。可以的话比较几种经典不同方法的效果，发表的模型代码可以参考[deep learning models for keras][15]。模型的特点和方法可以阅读相关论文，以及参阅网上的资料：
@@ -77,12 +77,12 @@
 [Luis]: https://arxiv.org/abs/1712.04621
 
 
-##基准模型
+## 基准模型
 这里打算使用[jiao Dong][jiaoDong]在Kaggle上分享的VGG_16方案作为比较的基准模型，他用预训练过的权重为基础直接对VGG_16进行训练，达到了LB=0.238左右的效果。
 
 [jiaoDong]: https://www.kaggle.com/jiaodong/vgg-16-pretrained-loss-0-23800
 
-##评估指标
+## 评估指标
 根据题目的[评估要求][Evaluation]，这里的评估指标为test集的multi-class logarithmic loss，其计算公式如下：
 $logloss=-\frac{1}{N}\sum\limits^{N}_{i=1}\sum\limits^{M}_{j=1}y_{ij}\log(p_{ij})$
 其中$N$是test集中图片的数目，$M$是图片的标注种类的数目，$y_{ij}$在图片$i$属于第$j$个标注时等于1，其他情况下等于0，$p_{ij}$表示第$i$张图片属于标注$j$的概率。
@@ -90,7 +90,7 @@ $logloss=-\frac{1}{N}\sum\limits^{N}_{i=1}\sum\limits^{M}_{j=1}y_{ij}\log(p_{ij}
 
 [Evaluation]: https://www.kaggle.com/c/state-farm-distracted-driver-detection#evaluation
 
-##设计大纲
+## 设计大纲
 整个项目的初步设计流程如下图所示：
 ```flow
 st=>start: 项目开始

@@ -86,7 +86,11 @@
 
 ## 评估指标
 根据题目的[评估要求][Evaluation]，这里的评估指标为test集的multi-class logarithmic loss，其计算公式如下：
-$logloss=-\frac{1}{N}\sum\limits^{N}_{i=1}\sum\limits^{M}_{j=1}y_{ij}\log(p_{ij})$
+
+$$
+logloss=-\frac{1}{N}\sum\limits^{N}_{i=1}\sum\limits^{M}_{j=1}y_{ij}\log(p_{ij})
+$$
+
 其中$N$是test集中图片的数目，$M$是图片的标注种类的数目，$y_{ij}$在图片$i$属于第$j$个标注时等于1，其他情况下等于0，$p_{ij}$表示第$i$张图片属于标注$j$的概率。
 为了防止$\log$中极端值的出现，对于$p_{ij}$可以做如下处理$\max(\min(p_{ij},1-10^{-15}),10^{-15})$。
 

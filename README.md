@@ -1,8 +1,4 @@
-# distracted_drivers
-#优达学城机器学习进阶毕业项目开题报告
-
-2018年1月9日
-曲波
+#distracted_drivers
 
 ##侦测走神司机
 

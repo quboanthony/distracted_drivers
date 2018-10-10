@@ -1,6 +1,7 @@
 # distracted_drivers
 
 ## 侦测走神司机
+(Exploration on going)
 
 ## 项目背景
 侦测走神司机项目（[Distracted Driver Detection][1]）来自 Kaggle，由[State Farm][2]提出。State Farm 使用车内摄像头，对驾驶员驾车时的状态进行了视频记录并截取了视频中的图片作为训练数据，要求通过该数据建立识别出司机是在专注驾驶还是在走神的方法。改项目具有比较大的现实意义，基于该图像识别的车载系统可以提示司机进行更安全、更专注的驾驶，提高行车效率，降低事故率。
